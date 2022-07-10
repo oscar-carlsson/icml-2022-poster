@@ -1,0 +1,128 @@
+% This file was created with tikzplotlib v0.9.12.
+\begin{tikzpicture}
+
+    \definecolor{color0}{rgb}{0.917647058823529,0.917647058823529,0.949019607843137}
+    \definecolor{color1}{rgb}{0.505882352941176,0.447058823529412,0.698039215686274}
+    \definecolor{color2}{rgb}{0.298039215686275,0.447058823529412,0.690196078431373}
+    \definecolor{color3}{rgb}{0.333333333333333,0.658823529411765,0.407843137254902}
+    \definecolor{color4}{rgb}{0.768627450980392,0.305882352941176,0.32156862745098}
+
+    %\begin{axis}[
+    %    axis background/.style={fill=color0},
+    %    axis line style={white},
+    %    legend cell align={left},
+    %    legend style={
+    %        fill opacity=0.8,
+    %        draw opacity=1,
+    %        text opacity=1,
+    %        at={(0.97,0.03)},
+    %        anchor=south east,
+    %        draw=none,
+    %        fill=color0
+    %    },
+    %    tick align=outside,
+    %    tick pos=left,
+    %    %title={Segmentation on four digit Spherical MNIST},
+    %    x grid style={white},
+    %    xlabel={Number of training images},
+    %    xmajorgrids,
+    %    xmin=-1.5, xmax=251.5,
+    %    xtick style={color=white!15!black},
+    %    xtick={0,50,100,150,200,250},
+    %    xticklabels={0,50k,100k,150k,200k,250k},
+    %    y grid style={white},
+    %    ylabel={mIoU (non-background)},
+    %    ymajorgrids,
+    %    ymin=0, ymax=100,
+    %    ytick style={color=white!15!black}
+    %    ]
+    \begin{axis}[
+        width=\smallfigw,
+        axis background/.style={fill=color0},
+        axis line style={white},
+        legend cell align={left},
+        legend style={
+            fill opacity=0.8,
+            draw opacity=1,
+            text opacity=1,
+            at={(0.97,0.03)},
+            anchor=south east,
+            draw=none,
+            fill=color0
+        },
+        legend image post style={scale=\smalllegendscale}, % rescales the markers in the legend
+        tick align=outside,
+        tick pos=left,
+        %title={Training on Unrotated Images},
+        x grid style={white},
+        xlabel={Number of unrotated training images},
+        xmajorgrids,
+        xmin=-1.5, xmax=251.5,
+        xtick style={color=white!15!black},
+        xtick={0,50,100,150,200,250},
+        xticklabels={0,50k,100k,150k,200k,250k},
+        y grid style={white},
+        ylabel={mIoU on Unrotated Images},
+        ymajorgrids,
+        ymin=0, ymax=100,
+        ytick style={color=white!15!black}
+        ]
+        \addplot [very thick, color1, mark=*, mark size=3.5, mark options={solid}]
+        table {%
+            10 73.6574362848322
+            20 76.0395833736555
+            30 76.7890055815408
+            40 77.5328788714405
+            50 77.020082794026
+            60 77.8381367155123
+            80 78.2197165462477
+            100 77.9684623342617
+            120 78.1636630549863
+            240 78.3261777832088
+        };
+        \addlegendentry{204k S2CNN}
+        \addplot [very thick, color2, mark=+, mark size=3.5, mark options={solid}]
+        table {%
+            10 32.7623520492889
+            20 39.785570381459
+            30 45.6672944820466
+            40 43.6034531633931
+            50 52.9660619529629
+            60 47.3842111139795
+            80 50.7463134189105
+            100 46.5693888014821
+            120 54.5243203801985
+            240 55.2213802508576
+        };
+        \addlegendentry{218k CNN}
+        \addplot [very thick, color3, mark=+, mark size=3.5, mark options={solid}]
+        table {%
+            10 35.9387544826403
+            20 46.3409641066674
+            30 50.8084672150865
+            40 48.5435259540383
+            50 58.9691012445147
+            60 54.1634577116196
+            80 59.2485369254248
+            100 55.0810140666171
+            120 61.8213733749629
+            240 62.4269677407072
+        };
+        \addlegendentry{1M CNN}
+        \addplot [very thick, color4, mark=+, mark size=3.5, mark options={solid}]
+        table {%
+            10 31.7295263691858
+            20 41.5629787039001
+            30 47.0335572651033
+            40 44.6008543255815
+            50 56.2212101792903
+            60 50.878548185644
+            80 57.4930188112352
+            100 52.2904181758365
+            120 60.3875023574351
+            240 61.5921850677986
+        };
+        \addlegendentry{5.5M CNN}
+    \end{axis}
+
+\end{tikzpicture}

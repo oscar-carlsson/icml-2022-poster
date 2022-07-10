@@ -1,0 +1,249 @@
+%==============================================================================
+% Beamer style for the poster template posted at
+% www.nathanieljohnston.com/index.php/2009/08/latex-poster-template
+%
+% Created by the Computational Physics and Biophysics Group at Jacobs University
+% https://teamwork.jacobs-university.de:8443/confluence/display/CoPandBiG/LaTeX+Poster
+% Modified by Nathaniel Johnston (nathaniel@nathanieljohnston.com) in August 2009
+% =============================================================================
+
+\ProvidesPackage{beamerthemeconfposter}
+\RequirePackage{tikz}		% for drawing the nice rounded boxes
+\usetikzlibrary{arrows,backgrounds}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{textcomp}
+\RequirePackage{amsmath,amssymb}
+\usefonttheme{professionalfonts}
+\newcommand{\makeruleinbox}{{\usebeamercolor[bg]{block alerted title}\centering\hspace*{-0.7cm}\rule{\inboxrule}{0.5cm}}}
+\usepackage{ragged2e}
+
+%-----------------------------------------------------------
+% Define a whole bunch of custom colors and fonts
+%-----------------------------------------------------------
+
+\definecolor{lgreen} {RGB}{180,210,100}
+\definecolor{dblue}  {RGB}{20,66,129}
+\definecolor{ddblue} {RGB}{11,36,69}
+\definecolor{lred}   {RGB}{220,0,0}
+\definecolor{nred}   {RGB}{224,0,0}
+\definecolor{norange}{RGB}{230,120,20}
+\definecolor{nyellow}{RGB}{255,221,0}
+\definecolor{ngreen} {RGB}{98,158,31}
+\definecolor{dgreen} {RGB}{78,138,21}
+\definecolor{nblue}  {RGB}{28,130,185}
+\definecolor{jblue}  {RGB}{20,50,100}
+%\definecolor{DartmouthGreen}{rgb}{0,0.4,0.2}
+
+%\definecolor{DartmouthGreen}{rgb}{39, 0, 137}
+\definecolor{DartmouthGreen}{rgb}{0.152941176471, 0, 0.537254901961}
+
+% set the basic colors
+\setbeamercolor{palette primary}   {fg=black,bg=white}
+\setbeamercolor{palette secondary} {fg=black,bg=white}
+\setbeamercolor{palette tertiary}  {bg=jblue,fg=white}
+\setbeamercolor{palette quaternary}{fg=black,bg=white}
+\setbeamercolor{structure}         {fg=jblue}
+\setbeamercolor{titlelike}         {bg=DartmouthGreen,fg=white}
+\setbeamercolor{frametitle}        {bg=DartmouthGreen!10,fg=DartmouthGreen}
+\setbeamercolor{cboxb}             {fg=black,bg=DartmouthGreen}
+\setbeamercolor{cboxr}             {fg=black,bg=red}
+
+% set colors for itemize/enumerate
+\setbeamercolor{item}{fg=ngreen}
+\setbeamercolor{item projected}{fg=white,bg=ngreen}
+
+% set colors for blocks
+\setbeamercolor{block title}{fg=ngreen,bg=white}
+\setbeamercolor{block body}{fg=black,bg=white}
+
+% set colors for alerted blocks (blocks with frame)
+%\setbeamercolor{block alerted title}{fg=white,bg=jblue}
+%\setbeamercolor{block alerted body}{fg=black,bg=jblue!10}
+
+% set the fonts
+\setbeamerfont{section in head/foot}{series=\bfseries}
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamerfont{block alerted title}{series=\bfseries}
+\setbeamerfont{frametitle}{series=\bfseries, size=\Large}
+%\setbeamerfont{frametitle}{}
+\setbeamerfont{block body}{size=\large, family=\sffamily}
+%\setbeamerfont{frametitle}{family=\rmfamily,series=\bfseries,size={\fontsize{32}{36}}}
+
+% set some beamer theme options
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{blocks}[width=0.0]
+\beamertemplatenavigationsymbolsempty
+
+% set bibliography style
+\setbeamertemplate{bibliography item}[text]
+\setbeamercolor{bibliography item}{fg=black,bg=white}
+\setbeamercolor{bibliography entry author}{fg=black,bg=white}
+\setbeamercolor{bibliography item}{fg=black,bg=white}
+
+% define some length variables that are used by the template
+\newlength{\inboxwd}
+\newlength{\iinboxwd}
+\newlength{\inboxrule}
+\makeatletter
+\makeatother
+
+\newlength{\headlinemargin}
+\setlength{\headlinemargin}{0.5in}
+\newlength{\headlinerule}
+\setlength{\headlinerule}{1\paperwidth}
+\addtolength{\headlinerule}{-2\headlinemargin}
+
+%==============================================================================
+% build the poster title
+%==============================================================================
+\setbeamertemplate{headline}{
+ \leavevmode
+ \hspace{1in}
+  \begin{columns}
+  \begin{column}{0.1\linewidth}
+  \hspace{1in}
+  \includegraphics[width=5in]{img/paper_qrcode.png}
+  \end{column}
+   \begin{column}{0.8\linewidth}
+    \vskip0.5cm
+    \centering
+    %\usebeamercolor{title in headline}{\color{DartmouthGreen}
+    %\includegraphics[angle=270,width=0.9\paperwidth]{title in headline}\\
+    %\includegraphics[angle=270,width=0.9\paperwidth]{head}\\
+    \usebeamercolor{title in headline}{\color{DartmouthGreen}
+     \Huge{\inserttitle}\\[1ex]}
+    \usebeamercolor{author in headline}{\color{DartmouthGreen}
+     \Large{\insertauthor}\\[1ex]}
+    \usebeamercolor{institute in headline}{\color{DartmouthGreen}\large{\insertinstitute}\\[1ex]}
+    \vskip1cm
+   \end{column}
+   \vspace{1cm}
+    \begin{column}{0.1\linewidth}
+    %\includegraphics[width=3in]{graeco-latin-square}
+    \hspace*{-10cm}
+    \begin{tikzpicture}
+        %\draw (-2,-2) to[grid with coordinates,ticks on top=true,ticks right=true] (10,10);
+        \node[] at (-8,9) {\includegraphics[height=10em]{img/tu_logo.pdf}};
+        \node[] at (8,9) {\includegraphics[height=10em]{img/chalmers_logo_resized.pdf}};
+        \node[] at (0,4) {\includegraphics[width =28em]{img/wasp_logo.pdf}};
+        \node[] at (-8,0) {\includegraphics[height=8em]{img/gu_logo.pdf}};
+        \node[] at ( 8,0) {\includegraphics[height=8em]{img/umeå_logo_wide.png}};
+    \end{tikzpicture}
+    %\hspace{2cm}
+
+  %{
+  %    % Chalmers University of Technology\\
+  %    % Gothenburg, Sweden\\[3em]
+  %    % \includegraphics[height=5em]{img/tu_logo.pdf}\hspace{2.5em}
+  %    % \includegraphics[height=5em]{img/chalmers_logo_resized.pdf}\\[1em]
+  %    % \includegraphics[width=14em]{img/wasp_logo.pdf}\\[1em]
+  %    % \hspace*{-3.5em}\includegraphics[width=30em]{img/collaborator_logos.pdf}
+  %    \includegraphics[height=4em]{img/gu_logo.pdf}\hspace{1em}
+  %    \includegraphics[height=4em]{img/umeå_logo_wide.png}
+  %    % \includegraphics[width=5em]{img/zenseact_logo.jpg}
+  %    %\raisebox{1.5em}{\includegraphics[height=6em]{img/tu_logo.pdf}}\hspace{4em}
+  %    %\includegraphics[height=9em]{img/chalmers_logo.pdf}\hspace*{5em}
+  %    \vspace{1em}
+  %}
+  \end{column}
+  \end{columns}
+ \vspace{0.5in}
+ \hspace{0.5in}\begin{beamercolorbox}[
+     %wd=47in,
+     %wd=1\paperwidth minus 0.5in,
+     wd=\headlinerule,
+     colsep=0.15cm
+     ]{cboxb}\end{beamercolorbox}
+ \vspace{0.1in}
+}
+
+%% Abstract definition
+%\setbeamertemplate{abstract begin}
+%{
+%  \par\vskip\medskipamount
+%  \begin{beamercolorbox}[colsep*=0ex,dp={2ex},center]{abstract title}
+%    \vskip-0.25cm
+%    \usebeamerfont{block title}\large\insertblocktitle
+%  \end{beamercolorbox}
+%  {\parskip0pt\par}
+%  \ifbeamercolorempty[bg]{block title}
+%  {}
+%  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}
+%  \usebeamerfont{abstract body}
+%  \vskip-0.5cm
+%  \begin{beamercolorbox}[colsep*=0ex,vmode]{block body}
+%  \justifying
+%}
+%
+%\setbeamertemplate{block end}
+%{
+%  \vskip\smallskipamount
+%}
+
+
+% Block definition
+\setbeamertemplate{block begin}
+{
+  \par\vskip\medskipamount
+  \begin{beamercolorbox}[colsep*=0ex,dp={2ex},center]{block title}
+    \vskip-0.25cm
+    \usebeamerfont{block title}\large\insertblocktitle
+    \begin{flushleft}
+    \vskip-1cm
+    \begin{tikzpicture}[remember picture,overlay]
+      \shade [inner color=gray,outer color=white]
+      (0,0) rectangle (\textwidth,0.3cm);
+    \end{tikzpicture}
+    \end{flushleft}
+  \end{beamercolorbox}
+  {\parskip0pt\par}
+  \ifbeamercolorempty[bg]{block title}
+  {}
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}
+  \usebeamerfont{block body}
+  \vskip-0.5cm
+  \begin{beamercolorbox}[colsep*=0ex,vmode]{block body}
+  \justifying
+}
+
+\setbeamertemplate{block end}
+{
+  \end{beamercolorbox}
+  \vskip\smallskipamount
+}
+
+% Alert block definition (with frame)
+\setbeamertemplate{block alerted begin}
+{
+  \par\vskip\medskipamount
+  \begin{beamercolorbox}[sep=0ex,rounded=true,center,dp={2ex}]{block alerted title}
+    \vskip0.01cm
+    \usebeamerfont{block title}\large\insertblocktitle
+  \end{beamercolorbox}
+  {\parskip0pt\par}
+  \usebeamerfont{block body}
+  \vskip-0.8cm
+  \begin{beamercolorbox}[sep=0.5cm, rounded=true,center]{block alerted title}
+  \setlength{\inboxwd}{\linewidth}
+  \addtolength{\inboxwd}{-1cm}
+  \begin{beamercolorbox}[rounded=true,wd={\inboxwd},center]{block alerted body}
+  \setlength{\iinboxwd}{\inboxwd}
+  \setlength{\inboxrule}{\inboxwd}
+  \addtolength{\iinboxwd}{-0.5cm}
+  \addtolength{\inboxrule}{0.5cm}
+  \begin{center}
+  \begin{minipage}{\iinboxwd}
+  \justifying
+}
+
+\setbeamertemplate{block alerted end}
+{
+  \end{minipage}
+  \end{center}
+  \end{beamercolorbox}
+  \end{beamercolorbox}
+  \vskip\smallskipamount
+}

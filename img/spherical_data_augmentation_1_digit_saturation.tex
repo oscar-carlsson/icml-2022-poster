@@ -1,0 +1,149 @@
+% This file was created with tikzplotlib v0.9.12.
+\begin{tikzpicture}[scale=\figscaleGraph, every node/.style={scale={\figscaleGraph*\textscaleGraph}}]
+
+    \definecolor{color0}{rgb}{0.917647058823529,0.917647058823529,0.949019607843137}
+    \definecolor{color1}{rgb}{0.505882352941176,0.447058823529412,0.698039215686274}
+    \definecolor{color2}{rgb}{0.298039215686275,0.447058823529412,0.690196078431373}
+    \definecolor{color3}{rgb}{0.333333333333333,0.658823529411765,0.407843137254902}
+    \definecolor{color4}{rgb}{0.768627450980392,0.305882352941176,0.32156862745098}
+
+    \begin{axis}[
+        %height=5.5cm,
+        width=\figw,
+        axis background/.style={fill=color0},
+        axis line style={white},
+        legend cell align={left},
+        legend style={
+            fill opacity=0.8,
+            draw opacity=1,
+            text opacity=1,
+            at={\graphlegendpos},
+            anchor=south east,
+            draw=none,
+            fill=color0,
+            %mark size=100pt
+        },
+        legend image post style={scale=2.5}, % rescales the markers in the legend
+        tick align=outside,
+        tick pos=left,
+        title={Semantic segmentation},
+        title style={at={\titlepos}},
+        x grid style={white},
+        xlabel style={yshift=\xlabelyshift},
+        xlabel={Number of training images},
+        xmajorgrids,
+        xmin=-0.06, xmax=1.26,
+        xtick style={color=white!85!black, font=\tiny},
+        xtick={0,0.2,0.4,0.6,0.8,1,1.2},
+        xticklabels={0,200k,400k,600k,800k,1.0M,1.2M},
+        y grid style={white},
+        ylabel style={yshift=\ylabelyshift},
+        ylabel={Non-background IoU},
+        ymajorgrids,
+        ymin=0, ymax=100,
+        ytick style={color=white!85!black, font=\tiny},
+        yticklabel style={font=\fontfamily{lmss}\selectfont},
+        ]
+        \path [
+            draw=color1,
+            %line width=0.7pt,
+            line width=\graphlinewidth{}pt,
+            dash pattern=on 6.475pt off 2.8pt
+            ]
+        (axis cs:0,79.0172031795914)
+        --(axis cs:1.2,79.0172031795914);
+
+        \addplot [
+            %very thick,
+            line width=\graphlinewidth{}pt,
+            color1,
+            mark=*,
+            mark size=3.5,
+            mark options={solid}
+            ]
+        table {%
+            0.01 73.6672228087486
+            0.02 76.2396656837297
+            0.03 75.9440592307601
+            0.04 77.0006140071276
+            0.05 78.0121633327085
+            0.06 78.2821354107209
+            0.08 78.6005328484791
+            0.1 78.3440466722201
+            0.1 78.7591833919464
+            0.12 78.6653772927548
+            0.24 79.0172031795914
+        };
+        \addlegendentry{\color{black}204k S2CNN}
+        \addplot [
+            %very thick,
+            line width=\graphlinewidth{}pt,
+            color2,
+            mark=+,
+            mark size=3.5,
+            mark options={solid}
+            ]
+        table {%
+            0.01 33.9979413230564
+            0.02 35.2098953469084
+            0.03 36.6968152116464
+            0.04 36.3691463001431
+            0.05 36.8220698817118
+            0.06 37.2769826449922
+            0.08 40.2635431161527
+            0.1 40.2390027250844
+            0.12 47.0656347978214
+            0.24 49.6463416406717
+            0.6 49.4607500191341
+            1.2 49.3667478680225
+        };
+        \addlegendentry{\color{black}218k CNN}
+        \addplot [
+            %very thick,
+            line width=\graphlinewidth{}pt,
+            color3,
+            mark=+,
+            mark size=3.5,
+            mark options={solid}
+            ]
+        table {%
+            0.01 40.5212931678065
+            0.02 41.377917930675
+            0.03 43.251758735901
+            0.04 42.6359169287997
+            0.05 44.2412785935146
+            0.06 44.5472077883157
+            0.08 49.1886897951291
+            0.1 48.7415286074443
+            0.12 55.0321060520411
+            0.24 58.6775255398797
+            0.6 60.5768117291
+            1.2 61.4187406860649
+        };
+        \addlegendentry{\color{black}1M CNN}
+        \addplot [
+            %very thick,
+            line width=\graphlinewidth{}pt,
+            color4,
+            mark=+,
+            mark size=3.5,
+            mark options={solid}
+            ]
+        table {%
+            0.01 39.8560257098186
+            0.02 39.2542836381079
+            0.03 40.2511386267728
+            0.04 40.9095744779148
+            0.05 43.239519380981
+            0.06 42.5646759801113
+            0.08 46.8256498871211
+            0.1 47.1734684919231
+            0.12 54.0339057646098
+            0.24 57.5987507390389
+            0.6 56.9030047900288
+            1.2 59.1977968380171
+        };
+        \addlegendentry{\color{black}5.5M CNN}
+    \end{axis}
+
+\end{tikzpicture}

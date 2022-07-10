@@ -1,0 +1,330 @@
+
+\DeclareCaptionFormat{custom}
+{%
+    %\textbf{#1#2}\textit{\small #3}
+    \rmfamily{\small{\color{dblue}#1#2\color{black} #3}}
+}
+\captionsetup{format=custom}
+
+\newtheorem*{namedtheorem}{\theoremname}
+\newcommand{\theoremname}{testing}
+\newenvironment{named}[1]{\renewcommand\theoremname{#1}
+    \begin{namedtheorem}}
+    {\end{namedtheorem}}
+
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{claim}[theorem]{Claim}
+%
+%\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{construction}[theorem]{Construction}
+%\newtheorem{discussion}[theorem]{Discussion}
+%\newtheorem{assumption}[theorem]{Assumption}
+%\newtheorem{assumptions}[theorem]{Assumptions}
+%\newtheorem{convention}[theorem]{Convention}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{examples}[theorem]{Examples}
+%\newtheorem*{acknowledgement}{Acknowledgement}
+
+%\theoremstyle{remark}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{remarks}[theorem]{Remarks}
+%\newtheorem{notation}[theorem]{Notation}
+%
+%\numberwithin{equation}{section}
+%\setbeamertemplate{caption}[numbered]
+
+% \numberwithin{figure}{section}
+% \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% New math commands %%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\down}{down}
+\DeclareMathOperator{\up}{up}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\maxPool}{maxPool}
+\DeclareMathOperator{\tConv}{tConv}
+\DeclareMathOperator{\upsample}{upsample}
+\DeclareMathOperator{\StwoSOthreeconv}{S2SO3conv}
+\DeclareMathOperator{\SOthreeconv}{SO3conv}
+\DeclareMathOperator{\SOthreeStwoconv}{SO3S2conv}
+
+\DeclareMathOperator{\vrize}{vec}
+
+% diagonal matrix
+\DeclareMathOperator{\diag}{diag}
+
+% identity
+\DeclareMathOperator{\id}{id}
+
+% argmax
+\DeclareMathOperator*{\argmax}{argmax}
+
+\newcommand*\IsoTo{%
+    \xrightarrow[]{\raisebox{-0.5 em}{\smash{\ensuremath{\sim}}}}%
+}
+
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\rad}{\mathrm{Rad}\,}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\mO}{\mathrm{O}}
+\newcommand{\SE}{\mathrm{SE}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\Nc}[1][]{N_{#1}}
+\newcommand{\um}{\id}  % unit matrix
+\newcommand{\vol}{\mathrm{vol}}
+
+\DeclareMathOperator{\Hom}{Hom}
+
+
+
+% this style is applied by default to any tikzpicture included via \tikzfig
+\tikzstyle{tikzfig}=[baseline=-0.25em,scale=0.5]
+
+% these are dummy properties used by TikZiT, but ignored by LaTex
+\pgfkeys{/tikz/tikzit fill/.initial=0}
+\pgfkeys{/tikz/tikzit draw/.initial=0}
+\pgfkeys{/tikz/tikzit shape/.initial=0}
+\pgfkeys{/tikz/tikzit category/.initial=0}
+
+% standard layers used in .tikz files
+\pgfdeclarelayer{edgelayer}
+\pgfdeclarelayer{nodelayer}
+\pgfsetlayers{background,edgelayer,nodelayer,main}
+
+% Node styles
+\tikzstyle{red_dot}=[fill=red, draw=black, shape=circle]
+\tikzstyle{green_dot}=[fill=green, draw=black, shape=circle]
+
+% Edge styles
+\tikzstyle{right_arrow}=[->]
+\tikzstyle{left_arrow}=[<-]
+\tikzstyle{thick_right_arrow}=[->, thick]
+\tikzstyle{thick_left_arrow}=[<-, thick]
+\tikzstyle{filled_path_edge}=[-, fill={rgb,255: red,209; green,209; blue,209}]
+
+% style for blank nodes
+\tikzstyle{none}=[inner sep=0mm]
+
+\newcommand{\yrcite}[1]{\citeyearpar{#1}}
+\renewcommand{\cite}[1]{\citep{#1}}
+% modification to natbib citations
+\setcitestyle{authoryear,round,citesep={;},aysep={,},yysep={;}}
+
+%Tool for drawing in tikz
+% Used as “\draw <lower left> to[grid with coordinates,ticks on top=true,ticks right=true] <top right>;”
+\makeatletter
+\def\grd@save@target#1{%
+    \def\grd@target{#1}}
+\def\grd@save@start#1{%
+    \def\grd@start{#1}}
+\def\GridCore{\edef\grd@@target{(\tikzinputsegmentlast)}%
+    \tikz@scan@one@point\grd@save@target\grd@@target\relax
+    \edef\grd@@start{(\tikzinputsegmentfirst)}%
+    \tikz@scan@one@point\grd@save@start\grd@@start\relax
+    \draw[minor help lines] (\tikzinputsegmentfirst) grid (\tikzinputsegmentlast);
+    \draw[major help lines] (\tikzinputsegmentfirst) grid (\tikzinputsegmentlast);
+    \grd@start
+    \pgfmathsetmacro{\grd@xa}{\the\pgf@x/1cm}
+    \pgfmathsetmacro{\grd@ya}{\the\pgf@y/1cm}
+    \grd@target
+    \pgfmathsetmacro{\grd@xb}{\the\pgf@x/1cm}
+    \pgfmathsetmacro{\grd@yb}{\the\pgf@y/1cm}
+    \pgfmathsetmacro{\grd@xc}{\grd@xa + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+    \pgfmathsetmacro{\grd@yc}{\grd@ya + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+    \foreach \x in {\grd@xa,\grd@xc,...,\grd@xb}
+    {\ifticksB
+        \node[anchor=north] at (\x,\grd@ya) {\pgfmathprintnumber{\x}};
+        \fi
+        \ifticksT
+        \node[anchor=south] at (\x,\grd@yb) {\pgfmathprintnumber{\x}};
+        \fi
+    }
+    \foreach \y in {\grd@ya,\grd@yc,...,\grd@yb}
+    {\ifticksL
+        \node[anchor=east] at (\grd@xa,\y) {\pgfmathprintnumber{\y}};
+        \fi
+        \ifticksR
+        \node[anchor=west] at (\grd@xb,\y) {\pgfmathprintnumber{\y}};
+        \fi}
+}
+\newif\ifticksL
+\newif\ifticksR
+\newif\ifticksT
+\newif\ifticksB
+\tikzset{ticks left/.is if=ticksL,
+    ticks right/.is if=ticksR,
+    ticks on top/.is if=ticksT,
+    ticks at bottom/.is if=ticksB,
+    ticks left=true,
+    ticks at bottom=true,
+    ticks right=false,
+    ticks on top=false,
+    grid with coordinates/.style={
+        decorate,decoration={show path construction,
+            lineto code={\GridCore
+        }}
+    },
+    minor help lines/.style={
+        help lines,
+        step=\pgfkeysvalueof{/tikz/grid with coordinates/minor step}
+    },
+    major help lines/.style={
+        help lines,
+        line width=\pgfkeysvalueof{/tikz/grid with coordinates/major line width},
+        step=\pgfkeysvalueof{/tikz/grid with coordinates/major step}
+    },
+    grid with coordinates/.cd,
+    minor step/.initial=.2,
+    major step/.initial=1,
+    major line width/.initial=2pt,
+}
+\makeatother
+
+% Command to make rulesep work nicely with subcaptions
+\newcommand{\rulesep}{\unskip\ \vrule height -1ex\ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Settings for personal and general TODO notes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\setlength{\marginparwidth}{1.5cm}  % Necessary to make the todonotes fit into the margins
+%
+%\newcounter{todocounter}
+%
+%\colorlet{jgcolor}{green!40!white}
+%\newcommand{\jgnote}[1]{\refstepcounter{todocounter}\todo[color=jgcolor,linecolor=black,size=\scriptsize,caption={\textbf{\thetodocounter. JG} #1}]{\textbf{\thetodocounter. JG:}\\#1}{}}
+%\newcommand{\jginline}[2][]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\temp {#2} }  % if #1 == blank
+%    { \def\temp {#1} }   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=jgcolor,inline,caption={\textbf{\thetodocounter. JG} \temp}]{\textbf{\thetodocounter. JG:} #2}{}}
+%\newcommand{\jgblock}[2][{}]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\templist {\emph{block comment}}
+%        \def\tempheader {}}  % if #1 == blank
+%    { \def\templist {#1}
+%        \def\tempheader {#1}}   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=jgcolor,inline,caption={\textbf{\thetodocounter. JG} \templist}]{\textbf{\thetodocounter. JG: \tempheader}\\\begin{minipage}{\textwidth}#2\end{minipage}}{}}
+%\newcommand{\jgfigure}[1]{\refstepcounter{todocounter}\missingfigure[figcolor=jgcolor]{\textbf{\thetodocounter. JG:} #1}{}}
+%
+%
+%\colorlet{jacolor}{blue!20!white}
+%\newcommand{\janote}[1]{\refstepcounter{todocounter}\todo[color=jacolor,linecolor=black,size=\scriptsize,caption={\textbf{\thetodocounter. JA} #1}]{\textbf{\thetodocounter. JA:}\\#1}{}}
+%\newcommand{\jainline}[2][]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\temp {#2} }  % if #1 == blank
+%    { \def\temp {#1} }   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=jacolor,inline,caption={\textbf{\thetodocounter. JA} \temp}]{\textbf{\thetodocounter. JA:} #2}{}}
+%\newcommand{\jablock}[2][{}]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\templist {\emph{block comment}}
+%        \def\tempheader {}}  % if #1 == blank
+%    { \def\templist {#1}
+%        \def\tempheader {#1}}   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=jacolor,inline,caption={\textbf{\thetodocounter. JA} \templist}]{\textbf{\thetodocounter. JA: \tempheader}\\\begin{minipage}{\textwidth}#2\end{minipage}}{}}
+%\newcommand{\jafigure}[1]{\refstepcounter{todocounter}\missingfigure[figcolor=jacolor]{\textbf{\thetodocounter. JA:} #1}{}}
+%
+%
+%\colorlet{dpcolor}{yellow!40!white}
+%\newcommand{\dpnote}[1]{\refstepcounter{todocounter}\todo[color=dpcolor,linecolor=black,size=\scriptsize,caption={\textbf{\thetodocounter. DP} #1}]{\textbf{\thetodocounter. DP:}\\#1}{}}
+%\newcommand{\dpinline}[2][]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\temp {#2} }  % if #1 == blank
+%    { \def\temp {#1} }   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=dpcolor,inline,caption={\textbf{\thetodocounter. DP} \temp}]{\textbf{\thetodocounter. DP:} #2}{}}
+%\newcommand{\dpblock}[2][{}]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\templist {\emph{block comment}}
+%        \def\tempheader {}}  % if #1 == blank
+%    { \def\templist {#1}
+%        \def\tempheader {#1}}   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=dpcolor,inline,caption={\textbf{\thetodocounter. DP} \templist}]{\textbf{\thetodocounter. DP: \tempheader}\\\begin{minipage}{\textwidth}#2\end{minipage}}{}}
+%\newcommand{\dpfigure}[1]{\refstepcounter{todocounter}\missingfigure[figcolor=dpcolor]{\textbf{\thetodocounter. DP:} #1}{}}
+%
+%\colorlet{cpcolor}{red!40!white}
+%\newcommand{\cpnote}[1]{\refstepcounter{todocounter}\todo[color=cpcolor,linecolor=black,size=\scriptsize,caption={\textbf{\thetodocounter. CP} #1}]{\textbf{\thetodocounter. CP:}\\#1}{}}
+%\newcommand{\cpinline}[2][]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\temp {#2} }  % if #1 == blank
+%    { \def\temp {#1} }   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=cpcolor,inline,caption={\textbf{\thetodocounter. CP} \temp}]{\textbf{\thetodocounter. CP:} #2}{}}
+%\newcommand{\cpblock}[2][{}]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\templist {\emph{block comment}}
+%        \def\tempheader {}}  % if #1 == blank
+%    { \def\templist {#1}
+%        \def\tempheader {#1}}   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=cpcolor,inline,caption={\textbf{\thetodocounter. CP} \templist}]{\textbf{\thetodocounter. CP: \tempheader}\\\begin{minipage}{\textwidth}#2\end{minipage}}{}}
+%\newcommand{\cpfigure}[1]{\refstepcounter{todocounter}\missingfigure[figcolor=cpcolor]{\textbf{\thetodocounter. CP:} #1}{}}
+%
+%\colorlet{hlcolor}{purple!40!white}
+%\newcommand{\hlnote}[1]{\refstepcounter{todocounter}\todo[color=hlcolor,linecolor=black,size=\scriptsize,caption={\textbf{\thetodocounter. HL} #1}]{\textbf{\thetodocounter. HL:}\\#1}{}}
+%\newcommand{\hlinline}[2][]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\temp {#2} }  % if #1 == blank
+%    { \def\temp {#1} }   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=hlcolor,inline,caption={\textbf{\thetodocounter. HL} \temp}]{\textbf{\thetodocounter. HL:} #2}{}}
+%\newcommand{\hlblock}[2][{}]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\templist {\emph{block comment}}
+%        \def\tempheader {}}  % if #1 == blank
+%    { \def\templist {#1}
+%        \def\tempheader {#1}}   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=hlcolor,inline,caption={\textbf{\thetodocounter. HL} \templist}]{\textbf{\thetodocounter. HL: \tempheader}\\\begin{minipage}{\textwidth}#2\end{minipage}}{}}
+%\newcommand{\hlfigure}[1]{\refstepcounter{todocounter}\missingfigure[figcolor=hlcolor]{\textbf{\thetodocounter. HL:} #1}{}}
+%
+%
+%\colorlet{focolor}{orange!40!white}
+%\newcommand{\fonote}[1]{\refstepcounter{todocounter}\todo[color=focolor,linecolor=black,size=\scriptsize,caption={\textbf{\thetodocounter. FO} #1}]{\textbf{\thetodocounter. FO:}\\#1}{}}
+%\newcommand{\foinline}[2][]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\temp {#2} }  % if #1 == blank
+%    { \def\temp {#1} }   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=focolor,inline,caption={\textbf{\thetodocounter. FO} \temp}]{\textbf{\thetodocounter. FO:} #2}{}}
+%\newcommand{\foblock}[2][{}]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\templist {\emph{block comment}}
+%        \def\tempheader {}}  % if #1 == blank
+%    { \def\templist {#1}
+%        \def\tempheader {#1}}   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=focolor,inline,caption={\textbf{\thetodocounter. FO} \templist}]{\textbf{\thetodocounter. FO: \tempheader}\\\begin{minipage}{\textwidth}#2\end{minipage}}{}}
+%\newcommand{\fofigure}[1]{\refstepcounter{todocounter}\missingfigure[figcolor=focolor]{\textbf{\thetodocounter. FO:} #1}{}}
+%
+%\colorlet{occolor}{purple!40!white}
+%\newcommand{\ocnote}[1]{
+%    \refstepcounter{todocounter}
+%    \todo[color=occolor,
+%    linecolor=black,
+%    size=\scriptsize,
+%    caption={\textbf{\thetodocounter. OC} #1}
+%    ]{\textbf{\thetodocounter. OC:}\\#1}{}
+%}
+%\newcommand{\ocinline}[2][]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\temp {#2} }  % if #1 == blank
+%    { \def\temp {#1} }   % else (not blank)
+%    \refstepcounter{todocounter}
+%    \todo[color=occolor,
+%    inline,
+%    caption={\textbf{\thetodocounter. OC} \temp}
+%    ]{\textbf{\thetodocounter. OC:} #2}{}
+%}
+%\newcommand{\ocblock}[2][{}]{
+%    \ifthenelse { \equal {#1} {} }
+%    { \def\templist {\emph{block comment}}
+%        \def\tempheader {}}  % if #1 == blank
+%    { \def\templist {#1}
+%        \def\tempheader {#1}}   % else (not blank)
+%    \refstepcounter{todocounter}\todo[color=occolor,inline,caption={\textbf{\thetodocounter. OC} \templist}]{\textbf{\thetodocounter. OC: \tempheader}\\\begin{minipage}{\textwidth}#2\end{minipage}}{}}
+%\newcommand{\ocfigure}[1]{
+%    \refstepcounter{todocounter}
+%    \missingfigure[figcolor=occolor]{\textbf{\thetodocounter. OC:} #1}{}
+%}
+

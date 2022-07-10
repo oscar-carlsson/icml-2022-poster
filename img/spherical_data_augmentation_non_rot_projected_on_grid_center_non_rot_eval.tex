@@ -1,0 +1,127 @@
+% This file was created with tikzplotlib v0.9.12.
+\begin{tikzpicture}
+
+    \definecolor{color0}{rgb}{0.917647058823529,0.917647058823529,0.949019607843137}
+    \definecolor{color1}{rgb}{0.505882352941176,0.447058823529412,0.698039215686274}
+    \definecolor{color2}{rgb}{0.298039215686275,0.447058823529412,0.690196078431373}
+    \definecolor{color3}{rgb}{0.333333333333333,0.658823529411765,0.407843137254902}
+    \definecolor{color4}{rgb}{0.768627450980392,0.305882352941176,0.32156862745098}
+
+    \begin{axis}[
+        width=\smallfigw,
+        axis background/.style={fill=color0},
+        axis line style={white},
+        legend cell align={left},
+        legend style={
+            fill opacity=0.8,
+            draw opacity=1,
+            text opacity=1,
+            at={(0.97,0.03)},
+            anchor=south east,
+            draw=none,
+            fill=color0
+        },
+        legend image post style={scale=\smalllegendscale}, % rescales the markers in the legend
+        tick align=outside,
+        tick pos=left,
+        %title={Training on Unrotated Images},
+        x grid style={white},
+        xlabel={Number of unrotated training images},
+        xmajorgrids,
+        xmin=-1.5, xmax=251.5,
+        xtick style={color=white!15!black},
+        xtick={0,50,100,150,200,250},
+        xticklabels={0,50k,100k,150k,200k,250k},
+        y grid style={white},
+        ylabel={mIoU on Unrotated Images},
+        ymajorgrids,
+        ymin=0, ymax=100,
+        ytick style={color=white!15!black}
+        ]
+        \addplot [
+            %very thick,
+            line width=\smallgraphlinewidth{}pt,
+            color1,
+            mark=*,
+            mark size=\smallmarksize,
+            mark options={solid}
+            ]
+        table {%
+            10 74.2677050380129
+            20 76.8594136096554
+            30 77.6652588021171
+            40 77.4544267995054
+            50 78.5149509435184
+            60 78.9408037774072
+            80 79.2532051489549
+            100 79.3389975715341
+            120 79.6200572759775
+            240 79.8134576137201
+        };
+        \addlegendentry{204k S2CNN}
+        \addplot [
+            %very thick,
+            line width=\smallgraphlinewidth{}pt,
+            color2,
+            mark=+,
+            mark size=\smallmarksize,
+            mark options={solid}
+            ]
+        table {%
+            10 73.58010400801
+            20 78.7023771991111
+            30 78.9041138752722
+            40 79.3057521588921
+            50 80.5108672546465
+            60 80.2258178334838
+            80 80.7878977638898
+            100 81.4627986946612
+            120 82.0625219880998
+            240 82.4408405267292
+        };
+        \addlegendentry{218k CNN}
+        \addplot [
+            %very thick,
+            line width=\smallgraphlinewidth{}pt,
+            color3,
+            mark=+,
+            mark size=\smallmarksize,
+            mark options={solid}
+            ]
+        table {%
+            10 78.2265176796211
+            20 80.535194868353
+            30 82.0018308336076
+            40 81.6911872451438
+            50 81.2831222653486
+            60 82.2505874229562
+            80 82.7425805840175
+            100 80.9219300755188
+            120 82.7111695574602
+            240 81.9464730390086
+        };
+        \addlegendentry{1M CNN}
+        \addplot [
+            %very thick,
+            line width=\smallgraphlinewidth{}pt,
+            color4,
+            mark=+,
+            mark size=\smallmarksize,
+            mark options={solid}
+            ]
+        table {%
+            10 78.0618706094855
+            20 81.3463741541022
+            30 83.3847572361571
+            40 84.2081055815584
+            50 84.6111215789895
+            60 84.4535715293519
+            80 85.2798405602758
+            100 85.8347079643411
+            120 86.1351850568458
+            240 87.1462695739364
+        };
+        \addlegendentry{5.5M CNN}
+    \end{axis}
+
+\end{tikzpicture}

@@ -1,0 +1,144 @@
+% This file was created with tikzplotlib v0.9.12.
+\tikzset{discont/.style={decoration={zigzag,segment length=12pt, amplitude=4pt},decorate}}
+\begin{tikzpicture}[scale=\figscaleGraph, every node/.style={scale={\figscaleGraph*\textscaleGraph}}, font={\sffamily\selectfont}]
+
+    \definecolor{color0}{rgb}{0.917647058823529,0.917647058823529,0.949019607843137}
+    \definecolor{color1}{rgb}{0.505882352941176,0.447058823529412,0.698039215686274}
+    \definecolor{color2}{rgb}{0.298039215686275,0.447058823529412,0.690196078431373}
+    \definecolor{color3}{rgb}{0.333333333333333,0.658823529411765,0.407843137254902}
+    \definecolor{color4}{rgb}{0.768627450980392,0.305882352941176,0.32156862745098}
+
+    \begin{axis}[
+        %height=5.5cm,
+        width=\figw,
+        axis background/.style={fill=color0},
+        axis line style={white},
+        legend cell align={left},
+        legend style={
+            fill opacity=0.8,
+            draw opacity=1,
+            text opacity=1,
+            %at={(0.97,0.03)},
+            at={\graphlegendpos},
+            anchor=south east,
+            draw=none,
+            fill=color0
+        },
+        legend image post style={scale=2.5}, % rescales the markers in the legend
+        tick align=outside,
+        tick pos=left,
+        x grid style={white},
+        title={Classification},
+        title style={at={\titlepos}},
+        xlabel={Number of training images},
+        xlabel style={yshift=\xlabelyshift},
+        xmajorgrids,
+        xmin=-60, xmax=1260,
+        xtick style={color=white!85!black},
+        xtick={0,200,400,600,800,1000,1200},
+        xticklabels={0,200k,400k,600k,800k,1.0M,1.2M},
+        y grid style={white},
+        ylabel={Test accuracy},
+        ylabel style={yshift=\ylabelyshift},
+        ymajorgrids,
+        ymin=80, ymax=100,
+        ytick style={color=white!85!black, font={\sffamily\selectfont}},
+        %enlargelimits=false,
+        %axis y discontinuity=crunch,
+        ]
+        \path [draw=color1, line width=\graphlinewidth{}pt, dash pattern=on 6.475pt off 2.8pt]
+        (axis cs:0,98.58)
+        --(axis cs:1200,98.58);
+
+        \addplot [
+            %very thick,
+            line width=\graphlinewidth{}pt,
+            color1,
+            mark=*,
+            mark size=3.5,
+            mark options={solid}
+            ]
+        table {%
+            10 91.81
+            20 96.01
+            30 97.26
+            40 96.61
+            50 97.54
+            60 97.64
+            100 98.5
+            120 98.47
+            240 98.58
+        };
+        \addlegendentry{150k S2CNN}
+        \addplot [
+            %very thick,
+            line width=\graphlinewidth{}pt,
+            color2,
+            mark=+,
+            mark size=3.5,
+            mark options={solid}
+            ]
+        table {%
+            10 85.16
+            20 86.77
+            30 87.26
+            40 87.41
+            50 90.03
+            60 89.46
+            80 91.48
+            100 91.5
+            120 94.43
+            240 95.65
+            600 95.86
+            1200 97.14
+        };
+        \addlegendentry{114k CNN}
+        \addplot [
+            %very thick,
+            line width=\graphlinewidth{}pt,
+            color3,
+            mark=+,
+            mark size=3.5,
+            mark options={solid}
+            ]
+        table {%
+            10 86.33
+            20 87.07
+            30 88.08
+            40 89.78
+            50 91.16
+            60 91.81
+            80 93.15
+            100 94.01
+            120 95.5
+            240 97.05
+            600 97.36
+            1200 98.01
+        };
+        \addlegendentry{0.5M CNN}
+        \addplot [
+            %very thick,
+            line width=\graphlinewidth{}pt,
+            color4,
+            mark=+,
+            mark size=3.5,
+            mark options={solid}
+            ]
+        table {%
+            10 86.63
+            20 86.42
+            30 88.15
+            40 89.02
+            50 91.93
+            60 92.21
+            80 93.13
+            100 94.01
+            120 95.44
+            240 96.59
+            600 97.49
+            1200 98.3
+        };
+        \addlegendentry{2.5M CNN}
+    \end{axis}
+
+\end{tikzpicture}

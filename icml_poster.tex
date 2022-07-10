@@ -1,0 +1,571 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Multiplicative domain poster
+% Created by Nathaniel Johnston
+% August 2009
+% http://www.nathanieljohnston.com/index.php/2009/08/latex-poster-template/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This very blank poster was created by Katherine M. Kinnaird from Nathaniel Johnston's poster template and style file(see above). The style file was edited by Sarah E. Wright.
+% It makes use of a variety of formatting tools, but is by no means complete.
+% You will need to use the style file in this folder.
+% The Dartmouth Grad Studies and the Math Department logos are in this folder
+% March 2013
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+                20pt,
+                final,
+                hyperref={%
+                    breaklinks=true,%
+                    letterpaper=true,%
+                    colorlinks,%
+                    bookmarks=false%
+                }]{beamer}
+
+\input{preamble_packages}
+\input{preamble_settings}
+\usepackage[scale=1.24]{beamerposter}
+%\usepackage{graphicx}			% allows us to import images
+%
+%\usepackage{latexsym}
+%\usepackage{amsfonts}
+%\usepackage{subfigure}
+%
+%\usepackage{amsthm}
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+
+
+
+%-----------------------------------------------------------
+% Custom commands that I use frequently
+%-----------------------------------------------------------
+
+
+
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\spa}{span}
+\DeclareMathOperator{\supp}{supp}
+%\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Aut}{Aut}
+
+
+%\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+%\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\TT}{\mathbb{T}}
+
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\NO}{\mathcal{N}\mathcal{O}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\B}{\mathbf{\mathcal{B}}}
+
+
+\renewcommand{\L}{\Lambda}
+\renewcommand{\O}{\Omega}
+\renewcommand{\l}{\lambda}
+
+\newcommand{\Lmin}{\Lambda^{\text{\tiny{min}}}}
+
+
+
+%-----------------------------------------------------------
+% Define the column width and poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% The separation I chose is 0.024 and I want 4 columns
+% Then set onecolwid to be (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be 2*onecolwid + sepwid = 0.464
+%-----------------------------------------------------------
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\midwid}
+\setlength{\paperwidth}{200cm}%48in
+\setlength{\paperheight}{100cm}%36in
+\setlength{\sepwid}{0.024\paperwidth}
+\setlength{\onecolwid}{0.22\paperwidth}
+\setlength{\twocolwid}{0.464\paperwidth}
+\setlength{\midwid}{0.512\paperwidth}
+\setlength{\topmargin}{-0.5in}
+\usetheme{confposter}
+
+%-----------------------------------------------------------
+% Define colours (see beamerthemeconfposter.sty to change these colour definitions)
+%-----------------------------------------------------------
+
+\setbeamercolor{block title}{fg=dblue,bg=white}
+\setbeamercolor{block body}{fg=black,bg=white}
+\setbeamercolor{block alerted title}{fg=DartmouthGreen,bg=DartmouthGreen!10}
+\setbeamercolor{block alerted body}{fg=black,bg=white}
+
+%-----------------------------------------------------------
+% Name and authors of poster/paper/research
+%-----------------------------------------------------------
+\title{{Equivariance versus Augmentation for Spherical Images}}
+%\author{Jan E.\ Gerken}%{chalmers,tuberlin,bifold}
+%\author{Oscar Carlsson}%{chalmers}
+%\author{Hampus Linander}%{gu}
+%\author{Fredrik Ohlsson}%{ume}
+%\author{Christoffer Petersson}%{zenseact,chalmers}
+%\author{Daniel Persson}%{chalmers}
+\author{Jan E.\ Gerken$ ^{1,2,3} $ \and Oscar Carlsson$ ^{1} $ \and Hampus Linander$ ^{4} $ \and Fredrik Ohlsson$ ^{5} $ \and Christoffer Petersson$ ^{6} $ \and Daniel Persson$ ^{1} $}
+%%% insert correct institute name
+\institute{\textbf{1}: Department of Mathematical Sciences, Chalmers University of Technology, \textbf{2}: Machine Learning Group at Berlin Institute of Technology, \textbf{3}: Berlin Institute for the Foundations of Learning and Data (BIFOLD), \textbf{4}: Department of Physics, University of Gothenburg, \textbf{5}: Department of Mathematics and Mathematical Statistics, Umeå University, \textbf{6}: Zenseact, Gothenburg}
+% \institution{1: Department of Mathematical Sciences, Chalmers University of Technology}%
+%{0}%{-1}
+%\institution{2: Machine Learning Group at Berlin Institute of Technology}%
+%{0.1}%{-1}
+%\institution{3: Berlin Institute for the Foundations of Learning and Data (BIFOLD)}%
+%{0.1}%{-1}
+%\institution{4: Department of Physics, University of Gothenburg}%
+%{0.1}%{-1}
+%\institution{5: Department of Mathematics and Mathematical Statistics, Umeå University}%
+%{0.1}%{-1}
+%\institution{6: Zenseact, Gothenburg}%
+
+
+%-----------------------------------------------------------
+% Start the poster itself
+%-----------------------------------------------------------
+% The \rmfamily command is used frequently throughout the poster to force a serif font to be used for the body text
+% Serif font is better for small text, sans-serif font is better for headers (for readability reasons)
+%-----------------------------------------------------------
+
+\newcommand{\textscaleGraph}{0.4}
+\newcommand{\figscaleGraph}{3.3}
+\newcommand{\ylabelyshift}{-5.5em}
+\newcommand{\xlabelyshift}{2.5em}
+\newcommand{\graphlinewidth}{5}
+\newcommand{\smallgraphlinewidth}{5}
+\newcommand{\graphlegendpos}{(0.3,0.03)}
+\newcommand{\smallmarksize}{5}
+\newcommand{\smalllegendscale}{1.3}
+\newcommand{\textscale}{0.90}
+\newcommand{\figscale}{1.2}
+\newcommand{\titlepos}{(0.15,0.3)}
+
+\newlength{\figw}
+\setlength{\figw}{10cm}
+
+\newlength{\smallfigw}
+\setlength{\smallfigw}{15cm}
+
+%\usefont{utf8}{\sffamily}{series}{shape}
+
+\begin{document}
+    \begin{frame}[t]
+        \begin{columns}[t]
+
+            %-----------------------------------------------------------
+            % Left Spacer
+            %-----------------------------------------------------------
+            \begin{column}{\sepwid}\end{column} % empty spacer column
+
+            %-----------------------------------------------------------
+            % Left Column
+            %-----------------------------------------------------------
+            \begin{column}{\onecolwid}
+                \vspace{-.6in}
+                \begin{center}\bf\Large\color{dblue} Abstract \end{center}
+
+                %\rmfamily{
+                    \large{We analyze the role of rotational equivariance in CNNs applied to spherical images. We compare the performance of the group equivariant networks known as S2CNNs and standard non-equivariant CNNs trained with an increasing amount of data augmentation. Our models are trained and evaluated on single or multiple items from the MNIST or FashionMNIST dataset projected onto the sphere. For the {\it invariant} task of image classification, we find that by considerably increasing the amount of data augmentation and the size of the networks, it is possible for the standard CNNs to reach at least the same performance as the equivariant network. In contrast, for the {\it equivariant} task of semantic segmentation, the non-equivariant networks are consistently outperformed by the equivariant networks with significantly fewer parameters. We also analyze and compare the inference latency and training times of the different networks, enabling detailed tradeoff considerations between equivariant architectures and data augmentation for practical problems. Our code is publicly available.}
+                %}
+                \justifying
+
+                \vspace{.3in}
+
+                %\begin{alertblock}{\large{Task}}
+                %
+                %    \begin{block}{Subheading A}
+                %        \rmfamily{
+                %            Text.  \\
+                %        }
+                %        %\begin{figure}[!ht]
+                %        %    \begin{center}
+                %        %        \subfigure{
+                %        %            \scalebox{1.0}{\includegraphics[width = .45\onecolwid,height=.39375\onecolwid]{dartmouth_graduate_studies}}}
+                %        %        \subfigure{
+                %        %            \scalebox{1.0}{\includegraphics[width = .45\onecolwid,height=.39375\onecolwid]{graeco-latin-square}}}
+                %        %    \end{center}
+                %        %
+                %        %\end{figure}
+                %        %\rmfamily{\small{\color{dblue}Figure 1: \color{black} You might want to include some pictures. They should be .png files}}\\
+                %
+                %        %\bigskip
+                %        %
+                %        %\rmfamily{
+                %        %    more words! \\
+                %        %    words.
+                %        %}
+                %        %
+                %        %\medskip
+                %
+                %    \end{block}
+                %\end{alertblock}
+                \begin{alertblock}{\Large{Symmetries in ML}}
+                    \begin{itemize}
+                        \item{Many machine learning problems have an inherent symmetry, e.g. in medical imaging}
+                    \end{itemize}
+                    \begin{center}
+                        \includegraphics[width=6em]{img/cells_cropped_labeled_edge.png}
+                        \raisebox{2.5em}{$\qquad\xrightarrow{\quad \large\text{rotate}\quad}\qquad$}
+                        \includegraphics[width=6em]{img/cells_rotated_labeled_edge.png}
+                    \end{center}
+                \end{alertblock}
+                \medskip
+                \begin{alertblock}{\Large{Equivariance}}
+                    %\begin{block}{Subheading B}
+                    %\rmfamily{
+                        \begin{itemize}
+                            %\item A model is equivariant if when the input is transformed the output transforms “accordingly”
+                            \item Equivariant neural networks build the symmetries of the problem into the network architecture
+                            \item A network is equivariant with respect to a symmetry group $ G $ iff \[ \mathcal{N}(T_g\, x)= T'_g\, \mathcal{N}(x)\qquad  \forall g\in G \]
+                            %\item Vary useful attribute for tasks where the model output should transform in a predictable way to a group of known transformations. A task where this is suitable is semantic segmentation.
+                            \item Widely used in applications such as quantum chemistry, medical imaging, \dots
+                            \item Equivariant networks require a specialized architecture
+                            \item Equivariance is guaranteed to hold exactly
+
+                        \end{itemize}
+
+                    %}
+
+                    %\end{block}
+                    %\medskip
+                    %\begin{block}{Subheading C}
+                    %    \rmfamily{
+                    %        \begin{enumerate}
+                    %            \item Step 1
+                    %            \item Step 2
+                    %            \item Step 3 (The important one!)
+                    %        \end{enumerate}
+                    %    }
+                    %
+                    %\end{block}
+
+                \end{alertblock}
+                \medskip
+                \begin{alertblock}{\Large{Data augmentation}}
+                    %\begin{block}{Something}
+                    %    Text w/o rm family.
+                    %\end{block}
+                    %\rmfamily{
+                        \begin{itemize}
+                            \item Enlarge training set by adding transformed data points
+                            %\item Useful when one wants to have certain transformations represented in the dataset
+                            \item Increases training time% due to more data for the model to work through
+                            %\item Requires more memory for the additional data
+                            \item No need for specialized architecture, thus easy to implement
+                            \item No guarantee for exact equivariance
+                        \end{itemize}
+                    %}
+                \end{alertblock}
+                %\vspace{0.37in}
+                \medskip
+                %\begin{alertblock}{\Large{Model tasks}}
+                %    \rmfamily{%
+                %        In this work we study semantic segmentation for single and multiple digit spherical MNIST images as well as classification for single digit spherical MNIST images.
+                %    }
+                %\end{alertblock}
+                %\medskip
+                \begin{alertblock}{\Large{Dataset}}
+                    \begin{itemize}
+                        \item MNIST digits projected onto the sphere with classification labels and segmentation masks
+                    \end{itemize}
+                    {\sffamily
+                    \begin{figure}
+                        \newcommand{\dualfigscale}{0.25}
+                        \centering
+                        \hfill{}
+                        \includegraphics[width=\dualfigscale\columnwidth]{img/spherical_MNIST_input.png}
+                        \hfill{}
+                        \includegraphics[width=\dualfigscale\columnwidth]{img/spherical_MNIST_label.png}
+                        \hfill{}
+                        %\caption{Sample from the spherical MNIST dataset used for semantic segmentation. Left: input data. Right: segmentation mask.}
+                        %\vspace*{-0.5cm}
+                        %\label{fig:sphericalMNIST}
+                    \end{figure}
+                    }
+                \end{alertblock}
+
+                %\medskip
+                %\begin{alertblock}{}
+                %    \begin{figure}
+                %        \centering
+                %        \includegraphics[width=0.4\textwidth]{img/paper_qrcode.png}
+                %    \end{figure}
+                %\end{alertblock}
+                \vfill
+                \noindent\footnotesize{Poster presented at ICML-2022 in Baltimore.}
+            \end{column}
+
+            %-----------------------------------------------------------
+            % Left/Mid Spacer
+            %-----------------------------------------------------------
+            \begin{column}{\sepwid}
+            \end{column}
+
+            %-----------------------------------------------------------
+            % Middle Column
+            %-----------------------------------------------------------
+
+            \begin{column}{\twocolwid}
+                \vspace{-.6in}
+                %\begin{columns}[t, totalwidth=\midwid]
+                %\begin{column}{\twocolwid}
+
+                % \vspace{-.8in}
+
+                \begin{alertblock}{\Large{Main problem}}
+                    %Investigating to what degree complex symmetries and transformations can be learnt by simple models through data augmentation compared to models specifically designed for that task.
+                    \centering
+                    Analyze trade-off between data augmentation and equivariance for invariant and equivariant tasks.
+                \end{alertblock}
+                \medskip
+                \begin{alertblock}{\Large{Key takeaway}}
+                    \centering
+                    \setlength{\columnsep}{60pt}
+                    \begin{multicols}{2}
+                        %\setlength\columnsep{50pt}
+                        For equivariant tasks, the performance of non-equivariant networks trained with data augmentation saturates well below the performance of much smaller equivariant models.
+
+                        \columnbreak
+
+                        For invariant tasks, the performance of larger non-equivariant networks trained with data augmentation can reach the performance of equivariant networks, although the non-equivariant networks take longer to train.
+                    \end{multicols}
+                    %{ For invariant tasks, the performance of larger non-equivariant networks trained with data augmentation can reach the performance of equivariant networks, although the non-equivariant networks take longer to train.
+                    %    %equivariant networks outperforms data augmentation by a large margin even for much larger models
+                    %}
+                    %%1. equiv tasks: equivariant net > ord+data aug
+                    %2. inv task: data aug can compete
+                    %3. longer train time for data aug
+                \end{alertblock}
+                \bigskip
+                \begin{alertblock}{\Large{Results}}
+                    \vspace{1cm}
+                    \begin{columns}[t, totalwidth=.95\twocolwid]
+                        \begin{column}{.92\twocolwid}
+                            \vspace{-.7in}
+
+                            \begin{block}{\hphantom{sdfgi}Performance}
+                                \begin{center}
+                                    \begin{itemize}
+                                        \item Numbers in model names refer to the number of trainable parameters
+                                    \end{itemize}
+                                \end{center}
+                                \begin{center}
+                                    \begin{figure}[!ht]
+                                        %\begin{center}
+                                            %\includegraphics[width = .97\twocolwid]{graeco-latin-square}
+                                            \hfill{}
+                                            {\input{img/spherical_data_augmentation_1_digit_saturation.tex}}%
+                                            \hfill{}%
+                                            {\input{img/spherical_classification_data_augmentation_1_digit_full.tex}}%
+                                            \hfill{}%
+                                            \hspace{1cm}
+                                        %\end{center}
+                                        %\caption{\rmfamily{\textit{Non-equivariant performance saturation for segmentation}. Left: For classification of spherical MNIST as in Figure~\ref{fig:spherical_classification}, the non-equivariant models reach the test accuracy of the equivariant models for very large amounts of data augmentation. Right: For semantic segmentation of one-digit spherical MNIST as in Figure~\ref{fig:data_augm_1_digit}, the non-background IoU of the non-equivariant models saturates well below the performance of the equivariant model even for moderately high amounts of data augmentation.}}
+                                    \end{figure}
+                                \end{center}
+
+
+                            \end{block}
+                            \medskip
+                            \begin{block}{\hphantom{sdfgi}Throughput and training times}
+                                %\begin{table}[t]
+                                %    %\caption{Runtime latency and throughput for the equivariant semantic segmentation model (204k S2CNN in Appendix Table~\ref{tab:equiv_models}) on an Nvidia T4 16GB GPU. Latency measures the time of a forward pass through the model on the GPU, throughput is the corresponding number of samples per second given the batch size. The larger batch size is chosen to maximize the throughput for the T4.}
+                                %    \label{tab:spherical_performance}
+                                %    \begin{tabular}{lll}
+                                    %        Batch size & Latency (ms)  & Throughput (N/s) \\
+                                    %        \hline
+                                    %        1          & $111\pm{0.6}$ & $9.0\pm{0.04}$   \\
+                                    %        7          & $479\pm{2.2}$ & $14.6\pm{0.07}$
+                                    %    \end{tabular}
+                                %\end{table}
+
+                                %\begin{table}[t]
+                                %    %\caption{Runtime latency and throughput for non-equivariant CNN model (200k CNN in Appendix Table~\ref{tab:equiv_models}) on an Nvidia T4 16GB GPU. Latency measures the time of a forward pass through the model on the GPU, throughput is the corresponding number of samples per second given the batch size. The larger batch size is chosen to maximize the throughput for the T4.}
+                                %    \label{tab:CNN_performance}
+                                %    \begin{tabular}{lll}
+                                    %        Batch size & Latency (ms)  & Throughput (N/s) \\
+                                    %        \hline
+                                    %        1 & $5.93 \pm{0.24} $ &  $169 \pm{5.8}$ \\
+                                    %        60 & $87.98 \pm{0.17}$ & $682 \pm{1.3}$
+                                    %    \end{tabular}
+                                %\end{table}
+                                \setlength{\columnsep}{60pt}
+                                \begin{multicols}{2}
+                                    %\begin{table}
+                                    \centering
+                                    Due to the specialized architecture the equivariant model has much higher latency at similar parameter counts than the non-equivariant models.\\[1em]
+                                    \leavevmode\\
+                                    \begin{tabular}{lll}
+                                        \toprule
+                                        Model & Latency (ms)  & Throughput (N/s) \\\midrule
+                                        204k S2CNN     & $111\pm{0.6}$ & $9.0\pm{0.04}$   \\
+                                        200k CNN     & $5.93 \pm{0.24} $ &  $169 \pm{5.8}$ \\
+                                        \bottomrule
+                                    \end{tabular}
+                                    %\end{table}
+
+                                    \columnbreak
+
+                                    %\begin{table}[t]
+                                    \centering
+                                    %\caption{Training times for the S2CNN classification model and non-equivariant CNN model at matched accuracy on rotated spherical images. The S2CNN model is trained on non-rotated images whereas the CNN is trained on an augmented dataset with rotated images. A single Nvidia T4 16GB was used for training.}
+                                    %\label{tab:classification_training_times}
+                                    At matched accuracy the total training time for the non-equivariant model trained with data augmentation is much higher than the training time for the equivariant model trained without data augmentation.\\[1em]
+                                    \begin{tabular}{lll}
+                                        \toprule
+                                        Model      & Accuracy & Training time \\\midrule
+                                        150k S2CNN & 97.64\%    & 15h           \\
+                                        5M CNN     & 97.49\%    & 26h          \\
+                                        \bottomrule
+                                    \end{tabular}
+                                    %\end{table}
+                                \end{multicols}
+
+
+                            \end{block}
+
+
+                            %\rmfamily{\small{\color{dblue}Figure 1: \color{black} \textit{Non-equivariant performance saturation for segmentation}. Left: For classification of spherical MNIST as in Figure~\ref{fig:spherical_classification}, the non-equivariant models reach the test accuracy of the equivariant models for very large amounts of data augmentation. Right: For semantic segmentation of one-digit spherical MNIST as in Figure~\ref{fig:data_augm_1_digit}, the non-background IoU of the non-equivariant models saturates well below the performance of the equivariant model even for moderately high amounts of data augmentation.}}\\
+
+                        \end{column}
+                    \end{columns}
+                %\begin{block}{Another Subheading!}
+                %    Originally there were 5 pictures here, but since we've already used the subfigure command, I'll just say you could put words here, with one or two columns.
+                %
+                %    \begin{columns}[t, totalwidth=.95\twocolwid]
+                %        \begin{column}{.92\onecolwid}
+                %            words.
+                %        \end{column}
+                %        \begin{column}{.92\onecolwid}
+                %            words.
+                %        \end{column}
+                %    \end{columns}
+                %\end{block}
+
+            \end{alertblock}
+
+
+
+        \end{column}
+
+        %-----------------------------------------------------------
+        % Mid/Right Spacer
+        %-----------------------------------------------------------
+
+        \begin{column}{\sepwid}
+        \end{column}			% empty spacer column
+
+        %-----------------------------------------------------------
+        % Right Column
+        %-----------------------------------------------------------
+        \begin{column}{\onecolwid}
+            \vspace{-.6in}
+
+            \begin{alertblock}{\Large{Further results}}
+
+                %\rmfamily{words.}. \\
+
+                %\justifying
+
+
+
+                %\begin{figure}[!ht]
+                %    \begin{center}
+                %        \subfigure{
+                %            \scalebox{1.0}{\includegraphics[width = .45\onecolwid,height=.39375\onecolwid]{graeco-latin-square}}}
+                %        \subfigure{
+                %            \scalebox{1.0}{\includegraphics[width = .45\onecolwid,height=.39375\onecolwid]{graeco-latin-square}}}
+                %    \end{center}
+                %\end{figure}
+                %\rmfamily{\small{\color{dblue}Figure 4: \color{black}  some pictures!}}\\
+
+                %And now some words about this picture. Picture picture picture picture picture words.
+
+                \begin{block}{Rotated vs non-rotated test images}
+                    %\rmfamily{
+                        When training is performed only on unrotated images, the non-equivariant models outperform the equivariant models on unrotated test data. On rotated test data, the non-equivariant performance deteriorates whereas the equivariant performance is unaffected.
+                        \begin{figure}[h]
+                            \centering
+                            % \includegraphics[width=0.49\textwidth]{imgs/spherical_data_augmentation_non_rot_non_rot_eval.pdf}
+                            \resizebox{0.49\textwidth}{!}{\input{img/spherical_data_augmentation_non_rot_projected_on_grid_center_non_rot_eval.tex}}
+                            \hfill
+                            % \includegraphics[width=0.49\textwidth]{imgs/spherical_data_augmentation_non_rot_rot_eval.pdf}
+                            \resizebox{0.49\textwidth}{!}{\input{img/spherical_data_augmentation_non_rot_projected_on_grid_center_rot_eval.tex}}
+                            %\caption{\textit{Training on Unrotated Images}. Performance of equivariant and non-equivariant models in semantic segmentation for various amounts of data augmentation for models trained on unrotated data with one digit. Performance  is  measured  in terms of mIoU for the non-background classes. Left: evaluated on unrotated test data. Right: evaluated on rotated test data.}
+                            %\label{fig:data_augm_non_rot}
+                        \end{figure}
+                    %}
+                \end{block}
+                \medskip
+                \begin{block}{Multiple digits}
+                    Similar results hold for semantic segmentation with four digits projected onto the sphere.
+                    \begin{figure}
+                        \centering
+                        % \includegraphics[width=0.9\columnwidth]{imgs/spherical_data_augmentation_4_digits.pdf}
+                        \hphantom{texttest}
+                        \raisebox{1.75em}{\includegraphics[width=0.35\columnwidth]{img/spherical_MNIST_input_4_digits.png}}
+                        \hfill{}
+                        \resizebox{0.49\textwidth}{!}{\input{img/spherical_data_augmentation_4_digits.tex}}
+                        \hfill{}
+
+                        %\caption{\textit{Segmentation on four digit Spherical MNIST}. Performance of equivariant and non-equivariant models in semantic segmentation for various amounts of data augmentation as in Figure~\ref{fig:data_augm_1_digit}, but with four digits projected onto the sphere.}
+                        %\label{fig:data_augm_4_digits}
+                    \end{figure}
+                %\begin{figure}[t]
+                %    \centering
+                %
+                %    \hfill
+                %    \includegraphics[width=0.4\columnwidth]{imgs/spherical_MNIST_label_4_digits.png}
+                %    \caption{Sample from the spherical MNIST dataset with four digits projected onto the sphere. Left: input data. Right: segmentation mask.}
+                %    \label{fig:sphericalMNIST_4_digits}
+                %\end{figure}
+                \end{block}
+                \begin{block}{New equivariant S2CNN layer for semantic segmentation}
+                    We added a layer to the S2CNN architecture \cite{cohen2018b} reducing feature maps on $ \mathrm{SO}(3) $ to feature maps on $ S^{2} $ for semantic segmentation.\\[2em]
+                    \input{img/final_layer.tikz}
+                \end{block}
+
+
+            \end{alertblock}
+            %\vspace{-0.15in}
+            %\begin{center}\bf\color{dblue} \small{References} \end{center}
+            %\bibliography{cites}
+            %%\rmfamily{\tiny{
+            %%        $^{[1]}$ ref 1\\
+            %%        $^{[2]}$ ref 2\\
+            %%        $^{[3]}$  ref 3\\
+            %%        $^{[4]}$ ref 4  \\
+            %%        $^{[5]}$ ref 5 \\
+            %%        $^{[6]}$ ref 6 \\
+            %%}}
+        \vfill
+        \noindent\footnotesize{Poster presented at ICML-2022 in Baltimore.\\ {
+                % \bibliographystyle{ieee}
+                \bibliographystyle{icml2022}
+                \bibliography{cites}
+        }}
+
+
+        \end{column}
+
+        %-----------------------------------------------------------
+        % Right Spacer
+        %-----------------------------------------------------------
+        \begin{column}{0.75\sepwid}
+        \end{column}			% empty spacer column
+
+    \end{columns}
+\end{frame}
+\end{document}

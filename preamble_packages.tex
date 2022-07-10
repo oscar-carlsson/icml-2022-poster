@@ -1,0 +1,157 @@
+% Recommended, but optional, packages for figures and better typesetting:
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs} % for professional tables
+
+% For theorems and such
+\usepackage{mathtools}
+
+
+\makeatletter
+\@namedef{ver@everyshi.sty}{}
+\makeatother
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\DeclareUnicodeCharacter{2212}{−}
+\usepgfplotslibrary{groupplots,dateplot}
+\usetikzlibrary{patterns,shapes.arrows}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes,shapes.geometric,shapes.misc}
+
+\usepackage{calc}
+\usepackage{lmodern}
+\usepackage{exscale}
+
+%\usepackage[centering,text={15.5cm,24cm}]{geometry}
+\usepackage{graphicx}
+\usepackage[all]{xy}
+%\usepackage{mathrsfs}
+\usepackage{marvosym}
+%\usepackage{stmaryrd}
+\usepackage[scr]{rsfso}
+\usepackage{srcltx}
+
+\usepackage[shadow,textwidth=1.8cm]{todonotes}
+
+\usepackage{changepage}
+\usepackage{pstricks}
+
+\usepackage{amsfonts,amsmath,amssymb,amscd,amsthm}
+%\usepackage{amsaddr}
+\usepackage{enumerate}
+\usepackage[all]{xy}
+\usepackage{mathtools}
+
+\usepackage{xparse}
+\usepackage{float}
+
+%\usepackage[
+%    %fontsize=30.2pt
+%    ]{fontsize}
+%\newcommand{\fontstorlek}{60pt}
+%\changefontsize[\fontstorlek]{\fontstorlek}
+
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage{tensor}
+\usepackage{textcomp}
+\usepackage{subcaption}
+\usepackage[group-separator={,}]{siunitx}
+
+\usepackage{lipsum}
+
+%\usepackage[T1]{fontenc}
+\usepackage{inputenc}
+\usepackage{multicol}
+\usepackage{ifthen}
+%\usepackage{tikz,tikz-cd}
+%\usetikzlibrary{arrows,backgrounds,calc,decorations.pathreplacing}
+
+
+
+% The ICML2022 package uses the natbib package
+%\usepackage[]{natbib}
+%\setcitestyle{numbers, open={[[}, close={]]}}
+
+%\usepackage{better_poster}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[all]{xy}
+\usepackage{mathtools}
+
+\usepackage{xparse}
+%\usepackage{comment}
+\usepackage{float}
+
+\usepackage{physics}
+\usepackage{bbm}
+\usepackage{tabu}
+\usepackage{rotating}
+\usepackage{subcaption}
+
+%\usepackage[dvipsnames]{xcolor}
+
+\usepackage{float}
+
+%\usepackage[
+%backend=biber,
+%style=authoryear-icomp,
+%sortlocale=de_DE,
+%url=false,
+%doi=false,
+%eprint=true,
+%]{biblatex}
+%\addbibresource{./GCNNs.bib}
+
+\usepackage{pgfplots}
+\usetikzlibrary{plotmarks,arrows.meta,patterns,shapes.arrows}
+\usepgfplotslibrary{patchplots,groupplots,dateplot}
+\pgfplotsset{
+    % define the layers you need.
+    % (Don't forget to add `main' somewhere in that list!!)
+    layers/my layer set/.define layer set={
+        background,
+        main,
+        foreground
+    }{
+        % you could state styles here which should be moved to
+        % corresponding layers, but that is not necessary here.
+        % That is why wo don't state anything here
+    },
+    % activate the newly created layer set
+    set layers=my layer set,
+    compat=newest,
+}
+\usepackage{grffile}
+\usepackage{amsmath}
+
+%\usepackage{icml2022}
+
+\usepackage{natbib}
+%\usepackage{biblatex}
+
+
+%\usepackage[
+%            %pagebackref=true,
+%            breaklinks=true,
+%            letterpaper=true,
+%            colorlinks,
+%            bookmarks=false
+%            ]{hyperref}
+
+% if you use cleveref..
+\usepackage[capitalize,noabbrev]{cleveref}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "mnist_paper"
+%%% End:

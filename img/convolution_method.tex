@@ -1,0 +1,26 @@
+\begin{tikzpicture}% coordinates
+    \node (image) at (0,0)
+    %{\includegraphics[width=1\linewidth]{../img/featureMapTransform_sameLimits.png}};
+    \node (hU) at (0,0.25) {};
+    \node (hL) at (0,-0.3) {};
+    \node (hUU) at (0,0.9) {};
+    \node (hLL) at (0,-1) {};
+    \draw[->] ($(hU) + (-1.7,0) $) -- ($ (-0.5,0) + (hL) $);
+    \draw[->] ($(hU) + (-0.5,0) $) -- ($ (0.8,0) + (hL) $);
+    \draw[->] ($(hU) + (0.8,0) $) -- ($ (2.1,0) + (hL) $);
+    \draw[->] ($(hU) + (2.1,0) $) -- ($ (-1.7,0) + (hL) $);
+
+    \draw[->] ($(hU) + (-5.0,0) $) -- ($ (-5.0,0) + (hL) $) node[midway, anchor=west] {$ r $};
+    \draw[->] ($(hU) + (5.45,0) $) -- ($ (5.45,0) + (hL) $) node[midway, anchor=west] {$ r $};
+
+    \draw[->] ($ (-4,0) + (hUU) $) -- ($ (-3,0) + (hUU) $) node[midway, anchor=south] {$ \Psi $};
+    \draw[->] ($ (-4,0) + (hLL) $) -- ($ (-3,0) + (hLL) $)node[midway, anchor=south] {$ \Psi $};
+
+    \draw[->] ($ (3.4,0) + (hUU) $) -- ($ (4.4,0) + (hUU) $) node[midway, anchor=south] {max};
+    \draw[->] ($ (3.4,0) + (hLL) $) -- ($ (4.4,0) + (hLL) $) node[midway, anchor=south] {max};
+
+    \node at (-1.9,2) {$ \Psi_0 $};
+    \node at (-0.5,2) {$ \Psi_1 $};
+    \node at (1,2) {$ \Psi_2 $};
+    \node at (2.5,2) {$ \Psi_3 $};
+\end{tikzpicture}
