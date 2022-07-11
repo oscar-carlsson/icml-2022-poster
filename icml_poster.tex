@@ -110,7 +110,7 @@
 %-----------------------------------------------------------
 % Name and authors of poster/paper/research
 %-----------------------------------------------------------
-\title{{Equivariance versus Augmentation for Spherical Images}}
+\title{{\bfseries Equivariance versus Augmentation for Spherical Images}}
 %\author{Jan E.\ Gerken}%{chalmers,tuberlin,bifold}
 %\author{Oscar Carlsson}%{chalmers}
 %\author{Hampus Linander}%{gu}
@@ -119,7 +119,7 @@
 %\author{Daniel Persson}%{chalmers}
 \author{Jan E.\ Gerken$ ^{1,2,3} $ \and Oscar Carlsson$ ^{1} $ \and Hampus Linander$ ^{4} $ \and Fredrik Ohlsson$ ^{5} $ \and Christoffer Petersson$ ^{6} $ \and Daniel Persson$ ^{1} $}
 %%% insert correct institute name
-\institute{\textbf{1}: Department of Mathematical Sciences, Chalmers University of Technology, \textbf{2}: Machine Learning Group at Berlin Institute of Technology, \textbf{3}: Berlin Institute for the Foundations of Learning and Data (BIFOLD), \textbf{4}: Department of Physics, University of Gothenburg, \textbf{5}: Department of Mathematics and Mathematical Statistics, Umeå University, \textbf{6}: Zenseact, Gothenburg}
+\institute{\textbf{1}: Department of Mathematical Sciences, Chalmers University of Technology, \textbf{2}: Machine Learning Group at Berlin Institute of Technology, \textbf{3}: Berlin Institute for the Foundations of Learning and Data, \textbf{4}: Department of Physics, University of Gothenburg, \textbf{5}: Department of Mathematics and Mathematical Statistics, Umeå University, \textbf{6}: Zenseact, Gothenburg}
 % \institution{1: Department of Mathematical Sciences, Chalmers University of Technology}%
 %{0}%{-1}
 %\institution{2: Machine Learning Group at Berlin Institute of Technology}%
@@ -175,10 +175,10 @@
             %-----------------------------------------------------------
             \begin{column}{\onecolwid}
                 \vspace{-.6in}
-                \begin{center}\bf\Large\color{dblue} Abstract \end{center}
+                \begin{center}\bf\huge\color{dblue} Abstract \end{center}
 
                 %\rmfamily{
-                    \large{We analyze the role of rotational equivariance in CNNs applied to spherical images. We compare the performance of the group equivariant networks known as S2CNNs and standard non-equivariant CNNs trained with an increasing amount of data augmentation. Our models are trained and evaluated on single or multiple items from the MNIST or FashionMNIST dataset projected onto the sphere. For the {\it invariant} task of image classification, we find that by considerably increasing the amount of data augmentation and the size of the networks, it is possible for the standard CNNs to reach at least the same performance as the equivariant network. In contrast, for the {\it equivariant} task of semantic segmentation, the non-equivariant networks are consistently outperformed by the equivariant networks with significantly fewer parameters. We also analyze and compare the inference latency and training times of the different networks, enabling detailed tradeoff considerations between equivariant architectures and data augmentation for practical problems. Our code is publicly available.}
+                \large{We analyze the role of rotational equivariance in CNNs applied to spherical images. We compare the performance of the group equivariant networks known as S2CNNs and standard non-equivariant CNNs trained with an increasing amount of data augmentation. Our models are trained and evaluated on single or multiple items from the MNIST or FashionMNIST dataset projected onto the sphere. For the \emph{invariant} task of image classification, we find that by considerably increasing the amount of data augmentation and the size of the networks, it is possible for the standard CNNs to reach at least the same performance as the equivariant network. In contrast, for the \emph{equivariant} task of semantic segmentation, the non-equivariant networks are consistently outperformed by the equivariant networks with significantly fewer parameters. We also analyze and compare the inference latency and training times of the different networks, enabling detailed tradeoff considerations between equivariant architectures and data augmentation for practical problems. Our code is publicly available.}
                 %}
                 \justifying
 
@@ -212,22 +212,23 @@
                 %
                 %    \end{block}
                 %\end{alertblock}
-                \begin{alertblock}{\Large{Symmetries in ML}}
-                    \begin{itemize}
-                        \item{Many machine learning problems have an inherent symmetry, e.g. in medical imaging}
-                    \end{itemize}
-                    \begin{center}
-                        \includegraphics[width=6em]{img/cells_cropped_labeled_edge.png}
-                        \raisebox{2.5em}{$\qquad\xrightarrow{\quad \large\text{rotate}\quad}\qquad$}
-                        \includegraphics[width=6em]{img/cells_rotated_labeled_edge.png}
-                    \end{center}
-                \end{alertblock}
-                \medskip
-                \begin{alertblock}{\Large{Equivariance}}
+                % \begin{alertblock}{\huge{Symmetries in ML}}
+                %     \begin{itemize}
+                %         \item{Many machine learning problems have an inherent symmetry, e.g. in medical imaging}
+                %     \end{itemize}
+                %     \begin{center}
+                %         \includegraphics[width=6em]{img/cells_cropped_labeled_edge.png}
+                %         \raisebox{2.5em}{$\qquad\xrightarrow{\quad \large\text{rotate}\quad}\qquad$}
+                %         \includegraphics[width=6em]{img/cells_rotated_labeled_edge.png}
+                %     \end{center}
+                % \end{alertblock}
+                % \medskip
+                \begin{alertblock}{\huge{Equivariance}}
                     %\begin{block}{Subheading B}
                     %\rmfamily{
                         \begin{itemize}
-                            %\item A model is equivariant if when the input is transformed the output transforms “accordingly”
+                          % \item A model is equivariant if when the input is transformed the output transforms “accordingly”
+                            \item{Many machine learning problems have an inherent symmetry}
                             \item Equivariant neural networks build the symmetries of the problem into the network architecture
                             \item A network is equivariant with respect to a symmetry group $ G $ iff \[ \mathcal{N}(T_g\, x)= T'_g\, \mathcal{N}(x)\qquad  \forall g\in G \]
                             %\item Vary useful attribute for tasks where the model output should transform in a predictable way to a group of known transformations. A task where this is suitable is semantic segmentation.
@@ -254,7 +255,7 @@
 
                 \end{alertblock}
                 \medskip
-                \begin{alertblock}{\Large{Data augmentation}}
+                \begin{alertblock}{\huge{Data augmentation}}
                     %\begin{block}{Something}
                     %    Text w/o rm family.
                     %\end{block}
@@ -271,13 +272,13 @@
                 \end{alertblock}
                 %\vspace{0.37in}
                 \medskip
-                %\begin{alertblock}{\Large{Model tasks}}
+                %\begin{alertblock}{\huge{Model tasks}}
                 %    \rmfamily{%
                 %        In this work we study semantic segmentation for single and multiple digit spherical MNIST images as well as classification for single digit spherical MNIST images.
                 %    }
                 %\end{alertblock}
                 %\medskip
-                \begin{alertblock}{\Large{Dataset}}
+                \begin{alertblock}{\huge{Dataset}}
                     \begin{itemize}
                         \item MNIST digits projected onto the sphere with classification labels and segmentation masks
                     \end{itemize}
@@ -325,13 +326,13 @@
 
                 % \vspace{-.8in}
 
-                \begin{alertblock}{\Large{Main problem}}
+                \begin{alertblock}{\huge{Research question}}
                     %Investigating to what degree complex symmetries and transformations can be learnt by simple models through data augmentation compared to models specifically designed for that task.
-                    \centering
+                    \centering\LARGE
                     Analyze trade-off between data augmentation and equivariance for invariant and equivariant tasks.
                 \end{alertblock}
                 \medskip
-                \begin{alertblock}{\Large{Key takeaway}}
+                \begin{alertblock}{\huge{Key takeaway}}
                     \centering
                     \setlength{\columnsep}{60pt}
                     \begin{multicols}{2}
@@ -350,17 +351,14 @@
                     %3. longer train time for data aug
                 \end{alertblock}
                 \bigskip
-                \begin{alertblock}{\Large{Results}}
+                \begin{alertblock}{\huge{Main results}}
                     \vspace{1cm}
                     \begin{columns}[t, totalwidth=.95\twocolwid]
                         \begin{column}{.92\twocolwid}
                             \vspace{-.7in}
-
-                            \begin{block}{\hphantom{sdfgi}Performance}
+                            \begin{block}{\hphantom{sdfgi}\Large Performance}
                                 \begin{center}
-                                    \begin{itemize}
-                                        \item Numbers in model names refer to the number of trainable parameters
-                                    \end{itemize}
+                                  \hspace*{2.5em}Numbers in model names refer to the number of trainable parameters
                                 \end{center}
                                 \begin{center}
                                     \begin{figure}[!ht]
@@ -380,7 +378,7 @@
 
                             \end{block}
                             \medskip
-                            \begin{block}{\hphantom{sdfgi}Throughput and training times}
+                            \begin{block}{\hphantom{sdfgi}\Large Throughput and training times}
                                 %\begin{table}[t]
                                 %    %\caption{Runtime latency and throughput for the equivariant semantic segmentation model (204k S2CNN in Appendix Table~\ref{tab:equiv_models}) on an Nvidia T4 16GB GPU. Latency measures the time of a forward pass through the model on the GPU, throughput is the corresponding number of samples per second given the batch size. The larger batch size is chosen to maximize the throughput for the T4.}
                                 %    \label{tab:spherical_performance}
@@ -408,11 +406,12 @@
                                     \centering
                                     Due to the specialized architecture the equivariant model has much higher latency at similar parameter counts than the non-equivariant models.\\[1em]
                                     \leavevmode\\
-                                    \begin{tabular}{lll}
+                                    {\setlength{\tabcolsep}{30pt}
+                                    \begin{tabular}{l@{}S@{}@{}S@{}}
                                         \toprule
-                                        Model & Latency (ms)  & Throughput (N/s) \\\midrule
-                                        204k S2CNN     & $111\pm{0.6}$ & $9.0\pm{0.04}$   \\
-                                        200k CNN     & $5.93 \pm{0.24} $ &  $169 \pm{5.8}$ \\
+                                        Model & {\hspace{1em}Latency (ms)\hspace{1em}}  & {Throughput (N/s)} \\\midrule
+                                        204k S2CNN     & 111+-0.6 & 9.0+-0.04   \\
+                                        200k CNN     & 5.93+-0.24  &  169+-5.8 \\
                                         \bottomrule
                                     \end{tabular}
                                     %\end{table}
@@ -424,13 +423,13 @@
                                     %\caption{Training times for the S2CNN classification model and non-equivariant CNN model at matched accuracy on rotated spherical images. The S2CNN model is trained on non-rotated images whereas the CNN is trained on an augmented dataset with rotated images. A single Nvidia T4 16GB was used for training.}
                                     %\label{tab:classification_training_times}
                                     At matched accuracy the total training time for the non-equivariant model trained with data augmentation is much higher than the training time for the equivariant model trained without data augmentation.\\[1em]
-                                    \begin{tabular}{lll}
+                                    \begin{tabular}{lcc}
                                         \toprule
                                         Model      & Accuracy & Training time \\\midrule
                                         150k S2CNN & 97.64\%    & 15h           \\
                                         5M CNN     & 97.49\%    & 26h          \\
                                         \bottomrule
-                                    \end{tabular}
+                                    \end{tabular}}
                                     %\end{table}
                                 \end{multicols}
 
@@ -474,7 +473,7 @@
         \begin{column}{\onecolwid}
             \vspace{-.6in}
 
-            \begin{alertblock}{\Large{Further results}}
+            \begin{alertblock}{\huge{Further results}}
 
                 %\rmfamily{words.}. \\
 
@@ -494,7 +493,7 @@
 
                 %And now some words about this picture. Picture picture picture picture picture words.
 
-                \begin{block}{Rotated vs non-rotated test images}
+                \begin{block}{\Large Rotated vs non-rotated test images}
                     %\rmfamily{
                         When training is performed only on unrotated images, the non-equivariant models outperform the equivariant models on unrotated test data. On rotated test data, the non-equivariant performance deteriorates whereas the equivariant performance is unaffected.
                         \begin{figure}[h]
@@ -510,16 +509,16 @@
                     %}
                 \end{block}
                 \medskip
-                \begin{block}{Multiple digits}
+                \begin{block}{\Large Multiple digits}
                     Similar results hold for semantic segmentation with four digits projected onto the sphere.
                     \begin{figure}
                         \centering
                         % \includegraphics[width=0.9\columnwidth]{imgs/spherical_data_augmentation_4_digits.pdf}
-                        \hphantom{texttest}
+                        \hspace{2em}
                         \raisebox{1.75em}{\includegraphics[width=0.35\columnwidth]{img/spherical_MNIST_input_4_digits.png}}
-                        \hfill{}
+                        \hspace{2em}
                         \resizebox{0.49\textwidth}{!}{\input{img/spherical_data_augmentation_4_digits.tex}}
-                        \hfill{}
+                        
 
                         %\caption{\textit{Segmentation on four digit Spherical MNIST}. Performance of equivariant and non-equivariant models in semantic segmentation for various amounts of data augmentation as in Figure~\ref{fig:data_augm_1_digit}, but with four digits projected onto the sphere.}
                         %\label{fig:data_augm_4_digits}
@@ -533,7 +532,7 @@
                 %    \label{fig:sphericalMNIST_4_digits}
                 %\end{figure}
                 \end{block}
-                \begin{block}{New equivariant S2CNN layer for semantic segmentation}
+                \begin{block}{\Large New equivariant S2CNN layer for semantic segmentation}
                     We added a layer to the S2CNN architecture \cite{cohen2018b} reducing feature maps on $ \mathrm{SO}(3) $ to feature maps on $ S^{2} $ for semantic segmentation.\\[2em]
                     \input{img/final_layer.tikz}
                 \end{block}

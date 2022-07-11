@@ -1,4 +1,4 @@
-\begin{tikzpicture}[scale=\figscale, every node/.style={scale={\figscale*\textscale}}]
+\begin{tikzpicture}[scale=\figscale, every node/.style={scale={\figscale*\textscale}}, font=\small]
     \begin{pgfonlayer}{nodelayer}
         % 		\node [style=none] (0) at (-3.5, 3.25) {};
         % 		\node [style=none] (1) at (-2.5, 3) {};
@@ -78,8 +78,8 @@
         \node [style=none] (74) at (15, 3.25) {};
         \node [style=none] (75) at (20.5, 3.25) {};
         \node [style=none] (78) at (24.75, 8) {$S^2$};
-        \node [style=none] (79) at (24.25, 3.25) {\includegraphics[width=0.1\textwidth]{img/spherical_mnist_label_sphere_only.png}};
-        \node [style=none] (80) at (26.5,4.7) {$f^{\text{final}}$};
+        \node [style=none] (79) at (24.25, 3.25) {\includegraphics[width=0.15\textwidth]{img/spherical_mnist_label_sphere_only.png}};
+        \node [style=none] (80) at (26.5,5.5) {$f^{\text{final}}$};
     \end{pgfonlayer}
     \begin{pgfonlayer}{edgelayer}
         \draw [style={right_arrow}] (13.center) to node [midway, above] {$\ell$} (15.center);
@@ -142,3 +142,8 @@
 
     \end{pgfonlayer}
 \end{tikzpicture}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../icml_poster"
+%%% End:
