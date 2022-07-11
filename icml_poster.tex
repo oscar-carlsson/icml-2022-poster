@@ -177,7 +177,9 @@
                 \begin{center}\bf\Large\color{dblue} Abstract \end{center}
 
                 %\rmfamily{
-                    \large{We analyze the role of rotational equivariance in CNNs applied to spherical images. We compare the performance of the group equivariant networks known as S2CNNs and standard non-equivariant CNNs trained with an increasing amount of data augmentation. Our models are trained and evaluated on single or multiple items from the MNIST or FashionMNIST dataset projected onto the sphere. For the {\it invariant} task of image classification, we find that by considerably increasing the amount of data augmentation and the size of the networks, it is possible for the standard CNNs to reach at least the same performance as the equivariant network. In contrast, for the {\it equivariant} task of semantic segmentation, the non-equivariant networks are consistently outperformed by the equivariant networks with significantly fewer parameters. We also analyze and compare the inference latency and training times of the different networks, enabling detailed tradeoff considerations between equivariant architectures and data augmentation for practical problems. Our code is publicly available.}
+                    %\large{
+                        We analyze the role of rotational equivariance in CNNs applied to spherical images. We compare the performance of the group equivariant networks known as S2CNNs and standard non-equivariant CNNs trained with an increasing amount of data augmentation. Our models are trained and evaluated on single or multiple items from the MNIST or FashionMNIST dataset projected onto the sphere. For the {\it invariant} task of image classification, we find that by considerably increasing the amount of data augmentation and the size of the networks, it is possible for the standard CNNs to reach at least the same performance as the equivariant network. In contrast, for the {\it equivariant} task of semantic segmentation, the non-equivariant networks are consistently outperformed by the equivariant networks with significantly fewer parameters. We also analyze and compare the inference latency and training times of the different networks, enabling detailed tradeoff considerations between equivariant architectures and data augmentation for practical problems. Our code is publicly available.
+                    %}
                 %}
                 \justifying
 
@@ -357,9 +359,10 @@
 
                             \begin{block}{\hphantom{sdfgi}Performance}
                                 \begin{center}
-                                    \begin{itemize}
-                                        \item Numbers in model names refer to the number of trainable parameters
-                                    \end{itemize}
+                                    %\begin{itemize}
+                                        %\item
+                                        Numbers in model names refer to the number of trainable parameters
+                                    %\end{itemize}
                                 \end{center}
                                 \begin{center}
                                     \begin{figure}[!ht]

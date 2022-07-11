@@ -1,4 +1,14 @@
 
+%\usefonttheme[onlymath]{sansserif}
+
+\newcommand\zz[2]{#1{\mathsf{#2}}}
+
+\newcommand\pgfmathsfprintnumber[2][]{%
+    \pgfmathprintnumberto[#1]{#2}\z
+    \expandafter\zz\z
+}
+
+
 \DeclareCaptionFormat{custom}
 {%
     %\textbf{#1#2}\textit{\small #3}
