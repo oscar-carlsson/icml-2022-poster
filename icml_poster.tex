@@ -18,7 +18,7 @@
                 hyperref={%
                     breaklinks=true,%
                     letterpaper=true,%
-                    colorlinks,%
+                    % colorlinks,%
                     bookmarks=false%
                 }]{beamer}
 
@@ -119,7 +119,7 @@
 %\author{Daniel Persson}%{chalmers}
 \author{Jan E.\ Gerken$ ^{1,2,3} $ \and Oscar Carlsson$ ^{1} $ \and Hampus Linander$ ^{4} $ \and Fredrik Ohlsson$ ^{5} $ \and Christoffer Petersson$ ^{6} $ \and Daniel Persson$ ^{1} $}
 %%% insert correct institute name
-\institute{\textbf{1}: Department of Mathematical Sciences, Chalmers University of Technology, \textbf{2}: Machine Learning Group at Berlin Institute of Technology, \textbf{3}: Berlin Institute for the Foundations of Learning and Data, \textbf{4}: Department of Physics, University of Gothenburg, \textbf{5}: Department of Mathematics and Mathematical Statistics, Umeå University, \textbf{6}: Zenseact, Gothenburg}
+\institute{\textbf{1}: Department of Mathematical Sciences, Chalmers University of Technology, Sweden, \textbf{2}: Machine Learning Group at Berlin Institute of Technology, Germany, \textbf{3}: Berlin Institute for the Foundations of Learning and Data, Germany, \textbf{4}: Department of Physics, University of Gothenburg, Sweden \textbf{5}: Department of Mathematics and Mathematical Statistics, Umeå~University, Sweden, \textbf{6}: Zenseact, Gothenburg, Sweden}
 % \institution{1: Department of Mathematical Sciences, Chalmers University of Technology}%
 %{0}%{-1}
 %\institution{2: Machine Learning Group at Berlin Institute of Technology}%
@@ -230,7 +230,7 @@
                           % \item A model is equivariant if when the input is transformed the output transforms “accordingly”
                             \item{Many machine learning problems have an inherent symmetry}
                             \item Equivariant neural networks build the symmetries of the problem into the network architecture
-                            \item A network is equivariant with respect to a symmetry group $ G $ iff \[ \mathcal{N}(T_g\, x)= T'_g\, \mathcal{N}(x)\qquad  \forall g\in G \]
+                            \item A network $\mathcal{N}$ is equivariant with respect to a symmetry group $ G $ iff \[ \mathcal{N}(T_g\, x)= T'_g\, \mathcal{N}(x)\qquad  \forall g\in G \]
                             %\item Vary useful attribute for tasks where the model output should transform in a predictable way to a group of known transformations. A task where this is suitable is semantic segmentation.
                             \item Widely used in applications such as quantum chemistry, medical imaging, \dots
                             \item Equivariant networks require a specialized architecture
@@ -326,13 +326,13 @@
 
                 % \vspace{-.8in}
 
-                \begin{alertblock}{\huge{Research question}}
+                \begin{alertblock}{\huge\raisebox{5pt}{Research question}}
                     %Investigating to what degree complex symmetries and transformations can be learnt by simple models through data augmentation compared to models specifically designed for that task.
                     \centering\LARGE
                     Analyze trade-off between data augmentation and equivariance for invariant and equivariant tasks.
                 \end{alertblock}
                 \medskip
-                \begin{alertblock}{\huge{Key takeaway}}
+                \begin{alertblock}{\huge\raisebox{5pt}{Key takeaway}}
                     \centering
                     \setlength{\columnsep}{60pt}
                     \begin{multicols}{2}
